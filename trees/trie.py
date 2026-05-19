@@ -8,7 +8,6 @@ class Trie:
     def __init__(self):
         self.root = TreeNode()
 
-
     def insert(self, word):
         temp = self.root
 
@@ -17,7 +16,6 @@ class Trie:
                 temp.children[char] = TreeNode()
 
             temp = temp.children[char]
-
 
         temp.is_end_of_word = True
 
@@ -58,8 +56,7 @@ class Trie:
 
         return result
 
-
-    def _dfs(self, node, current_word,  result):
+    def _dfs(self, node, current_word, result):
         if node.is_end_of_word:
             result.append(current_word)
 
@@ -67,13 +64,11 @@ class Trie:
             self._dfs(node, current_word + char, result)
 
 
-
-
 if __name__ == "__main__":
     trie = Trie()
-    trie.insert('cat')
-    trie.insert('dog')
-    trie.insert('dollar')
-    trie.insert('donkey')
+    trie.insert("cat")
+    trie.insert("dog")
+    trie.insert("dollar")
+    trie.insert("donkey")
     print(trie.search("dog"))
     print(trie.get_words_with_prefix("do"))

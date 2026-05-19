@@ -1,5 +1,6 @@
 ## LFU - Least Frequent Used cache
 
+
 class LFU:
     class Node:
         def __init__(self, key, value):
@@ -9,7 +10,6 @@ class LFU:
             self.next = None
             self.freq = 1
 
-
     def __init__(self, capacity):
         self.capacity = capacity
         self.cache = {}
@@ -17,7 +17,6 @@ class LFU:
         self.tail = self.Node(0, 0)
         self.head.next = self.tail
         self.tail.prev = self.head
-
 
     def _add(self, node):
         temp = self.head.next
@@ -28,14 +27,12 @@ class LFU:
         node.next = temp
         temp.prev = node
 
-
     def _delete(self, node):
         back = node.prev
         end = node.next
 
         back.next = end
         end.prev = back
-
 
     def _get(self, key):
         if key in self.cache:

@@ -5,7 +5,6 @@ class DoubleLinkedList:
     def __init__(self):
         self.head = None
 
-
     def insert(self, val):
         node = List(val)
 
@@ -13,9 +12,8 @@ class DoubleLinkedList:
 
         if self.head is not None:
             node.next = self.head
-            
-        self.head = node
 
+        self.head = node
 
     def print_out(self):
         node = self.head

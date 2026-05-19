@@ -1,5 +1,7 @@
 from collections import defaultdict, deque
 
+from sorting.topological_sort import topological_sort_dfs, topological_sort_kahn
+
 
 class Graph:
     def __init__(self, directed=False):
@@ -15,7 +17,6 @@ class Graph:
     def insert_vertex(self, v):
         if v not in self.graph:
             self.graph[v] = []
-
 
     def get_vertices(self):
         return list(self.graph.keys())
@@ -46,7 +47,6 @@ class Graph:
 
         return order
 
-
     def dfs(self, start):
         visited = set()
         order = []
@@ -64,9 +64,6 @@ class Graph:
         return order
 
 
-
-
-
 if __name__ == "__main__":
     g = Graph()
     g.insert_edge(0, 1)
@@ -82,3 +79,15 @@ if __name__ == "__main__":
 
     print(g.dfs(0))
 
+    g1 = Graph(directed=True)
+    g1.insert_edge("A", "C")
+    g1.insert_edge("A", "D")
+    g1.insert_edge("B", "D")
+    g1.insert_edge("B", "E")
+    g1.insert_edge("C", "F")
+    g1.insert_edge("D", "F")
+    g1.insert_edge("E", "F")
+
+    print("Topological Sort \n")
+    print(topological_sort_dfs(g1))
+    print(topological_sort_kahn(g1.graph, g1.get_vertices()))

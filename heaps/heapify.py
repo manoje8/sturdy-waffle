@@ -3,11 +3,14 @@ Heapify
 0's based indexing
 """
 
+
 def parent(i):
-    return (i-1) //2
+    return (i - 1) // 2
+
 
 def left(i):
     return 2 * i + 1
+
 
 def right(i):
     return (2 * i) + 2
@@ -50,13 +53,11 @@ def min_heapify(arr, i, n):
 def build_heapify(arr: list[int]):
     n = len(arr) // 2
 
-    for i in range(n-1 , -1, -1):
+    for i in range(n - 1, -1, -1):
         max_heapify(arr, i, len(arr))
-
 
 
 # arr = [27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0]
 # arr1 = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
 # min_heapify(arr, 2, len(arr))
 # build_heapify(arr1)
-

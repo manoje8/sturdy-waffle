@@ -19,7 +19,6 @@ class LRUCache:
             self.prev = None
             self.next = None
 
-
     def __init__(self, capacity):
         self.capacity = capacity
         self.cache = {}
@@ -27,7 +26,6 @@ class LRUCache:
         self.tail = self.Node(0, 0)
         self.head.next = self.tail
         self.tail.prev = self.head
-
 
     def _remove(self, node):
         previous = node.prev
@@ -47,7 +45,6 @@ class LRUCache:
         old.prev = node
         self.head.next = node
 
-
     def get(self, key):
         if key in self.cache:
             node = self.cache[key]
@@ -58,7 +55,6 @@ class LRUCache:
             return node.value
 
         return -1
-
 
     def put(self, key, value):
 
@@ -74,4 +70,3 @@ class LRUCache:
 
             self._remove(lru)
             del self.cache[lru.key]
-

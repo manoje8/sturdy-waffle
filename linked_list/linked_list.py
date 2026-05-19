@@ -15,7 +15,6 @@ class LinkedList:
             temp.next = self.head
             self.head = temp
 
-
     def insert_at(self, value, index):
 
         if index < 0:
@@ -30,7 +29,7 @@ class LinkedList:
             self.head = new_node
             return
 
-        for i in range(index-1):
+        for i in range(index - 1):
             if current is None:
                 raise IndexError("Index out of range")
             current = current.next
@@ -43,8 +42,6 @@ class LinkedList:
         current.next = new_node
         new_node.next = temp
 
-
-
     def search(self, search_value, is_recursive=False):
         node = self.head
 
@@ -52,7 +49,6 @@ class LinkedList:
             return self.__recursive_search(node, search_value)
         else:
             return self.__iterative_search(node, search_value)
-
 
     def delete_at(self, index):
         temp = self.head
@@ -69,15 +65,12 @@ class LinkedList:
                 raise IndexError("Index out of range")
             temp = temp.next
 
-
         if temp.next is None:
             raise IndexError("Index out of range")
-
 
         prev = temp
         delete_node = prev.next
         prev.next = delete_node.next
-
 
     def reverse_by_pointer(self):
         """Reverse the direction of a single linked list"""
@@ -92,16 +85,12 @@ class LinkedList:
 
         self.head = prev
 
-
-
-
     def print_out(self):
         temp = self.head
         while temp:
             print(temp.value, end=", ")
             temp = temp.next
         print("\n")
-
 
     def hasCycle(self) -> bool:
         node = self.head
@@ -119,7 +108,6 @@ class LinkedList:
                 return True
 
         return False
-
 
     def detectCycleStart(self):
         temp = self.head
@@ -145,7 +133,6 @@ class LinkedList:
 
         return slow.value
 
-
     def find_middle(self):
         temp = self.head
 
@@ -158,7 +145,6 @@ class LinkedList:
             slow, fast = slow.next, fast.next.next
 
         return slow.value
-
 
     def __iterative_search(self, node, value):
         while node:

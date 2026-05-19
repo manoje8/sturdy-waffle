@@ -6,9 +6,12 @@ from heaps.heapify import max_heapify, build_heapify, parent
 def heap_maximum(arr):
     return arr[0]
 
+
 """
 Move from top to bottom
 """
+
+
 def heap_extract_max(arr):
     build_heapify(arr)
     n = len(arr) - 1
@@ -20,13 +23,16 @@ def heap_extract_max(arr):
     arr[0] = arr[n]
     del arr[n]
 
-    max_heapify(arr, 0, n-1)
+    max_heapify(arr, 0, n - 1)
 
     return max
+
 
 """
 Move from bottom to top
 """
+
+
 def heap_increase_key(arr, i, key):
     if key < arr[i]:
         print("New key is smaller than current Key")
@@ -39,9 +45,10 @@ def heap_increase_key(arr, i, key):
         arr[i], arr[parent(i)] = arr[parent(i)], arr[i]
         i = parent(i)
 
+
 def max_heap_insert(arr, key):
     arr.append(-math.inf)
-    heap_increase_key(arr, len(arr)-1, key)
+    heap_increase_key(arr, len(arr) - 1, key)
 
 
 arr = [15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1]

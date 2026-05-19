@@ -3,6 +3,7 @@ from linked_list.LRU import LRUCache
 from linked_list.doubly_linked_list import DoubleLinkedList
 from heaps.heapsort import heap_sort
 
+
 def linked_fn():
     linked = linked_list.LinkedList()
 
@@ -38,6 +39,7 @@ def double_linked_list():
     dl.insert(6)
     dl.print_out()
 
+
 def lru_fn():
     lru = LRUCache(2)
     lru.put(1, 1)
@@ -46,14 +48,15 @@ def lru_fn():
     lru.put(3, 3)
     print(lru.get(3))
 
+
 def sorting():
-    arr = [3,2,1,5,6,4]
+    arr = [3, 2, 1, 5, 6, 4]
     heap_sort(arr)
     print(arr)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # lru_fn()
     # linked_fn()
     # double_linked_list()
     sorting()
-
