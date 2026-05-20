@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e939bd17-9f81-4e17-a183-d8d82f222145" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.pre-commit-config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sorting/topologicalSort_notes.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sorting/topological_sort.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/graph/graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heaps/heapify.py" beforeDir="false" afterPath="$PROJECT_DIR$/heaps/heapify.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heaps/heapsort.py" beforeDir="false" afterPath="$PROJECT_DIR$/heaps/heapsort.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/heaps/priority_queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/heaps/priority_queue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linked_list/LFU.py" beforeDir="false" afterPath="$PROJECT_DIR$/linked_list/LFU.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linked_list/LRU.py" beforeDir="false" afterPath="$PROJECT_DIR$/linked_list/LRU.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linked_list/doubly_linked_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/linked_list/doubly_linked_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linked_list/linked_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/linked_list/linked_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linked_list/list.py" beforeDir="false" afterPath="$PROJECT_DIR$/linked_list/list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/problems/merge_k_sorted_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/problems/merge_k_sorted_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trees/trie.py" beforeDir="false" afterPath="$PROJECT_DIR$/trees/trie.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/problems/max_freq_stack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,27 +37,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.graph.executor": "Run",
-    "Python.heapify.executor": "Run",
-    "Python.heapsort.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.priority_queue.executor": "Run",
-    "Python.text_editor.executor": "Run",
-    "Python.trie.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/mano/Manoj/Learning/dsa/assets/n_depth_explanation.png",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.graph.executor&quot;: &quot;Run&quot;,
+    &quot;Python.heapify.executor&quot;: &quot;Run&quot;,
+    &quot;Python.heapsort.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.priority_queue.executor&quot;: &quot;Run&quot;,
+    &quot;Python.text_editor.executor&quot;: &quot;Run&quot;,
+    &quot;Python.trie.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mano/Manoj/Learning/dsa/assets/n_depth_explanation.png&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -81,7 +66,7 @@
       <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.graph">
+  <component name="RunManager" selected="Python.priority_queue">
     <configuration name="graph" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dsa" />
       <option name="ENV_FILES" value="" />
@@ -105,7 +90,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="heapify" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="dsa" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,12 +99,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/heaps" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/heaps/heapify.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -199,11 +184,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.priority_queue" />
+        <item itemvalue="Python.heapify" />
         <item itemvalue="Python.graph" />
         <item itemvalue="Python.trie" />
         <item itemvalue="Python.text_editor" />
-        <item itemvalue="Python.priority_queue" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
