@@ -1,0 +1,36 @@
+"""
+A subsequence is not the same as a subarray.
+A subarray is contiguous (e.g., [2,5,3]).
+A subsequence is derived by deleting some elements without changing the order of the remaining elements.
+For [10,9,2,5,3,7,101,18], [2,3,7,101] is a subsequence (we skipped 5). We cannot reorder numbers.
+
+
+Example 1: nums = [10,9,2,5,3,7,101,18] → Output: 4 ([2,3,7,101] or [2,5,7,101] or [2,3,7,18]).
+Example 2: nums = [0,1,0,3,2,3] → Output: 4 ([0,1,2,3]).
+Example 3: nums = [7,7,7,7,7] → Output: 1 (strictly increasing, so duplicates don't count).
+
+Imagine you are reading the array from left to right. For every element nums[i], ask yourself:
+"
+If I decide that nums[i] is the last element of my increasing subsequence,
+what is the longest subsequence I can build ending here?
+"
+To answer that, you must look back at all previous elements nums[j] where j < i. If nums[j] < nums[i],
+then you can take the best subsequence ending at j and simply append nums[i] to it.
+"""
+
+
+def length_of_lis(arr):
+    n = len(arr)
+    dp = [1] * n
+
+    for i in range(n):
+        for j in range(i):
+            if arr[j] < arr[i]:
+                dp[i] = max(dp[i], dp[j] + 1)
+
+    return max(dp) if dp else 0
+
+
+if __name__ == "__main__":
+    arr = [10, 9, 2, 5, 3, 7, 101, 18]
+    length_of_lis(arr)
