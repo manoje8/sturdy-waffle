@@ -38,7 +38,6 @@ class Solution:
         heap = []
 
         for i, node in enumerate(lists):
-
             if node:
                 heapq.heappush(
                     heap, (node.val, i, node)

@@ -6,12 +6,6 @@ repos:
         args: [--fix]
         files: ^(dags|plugins|tests)/
 
-  - repo: https://github.com/psf/black
-    rev: 24.4.2
-    hooks:
-      - id: black
-        files: ^(dags|plugins|tests)/
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:

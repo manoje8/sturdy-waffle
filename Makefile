@@ -2,8 +2,8 @@
 
 lint:
 	    ruff check .
-	    black --check .
+		ruff format --check .
 
 format:
 	    ruff check --fix .
-	    black .
+		ruff format .

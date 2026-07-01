@@ -14,7 +14,6 @@ Implement the FreqStack class:
 
 
 class FreqStack:
-
     def __init__(self):
         self.freq = {}
         self.group = {}

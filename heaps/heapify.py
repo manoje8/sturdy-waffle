@@ -57,7 +57,10 @@ def build_heapify(arr: list[int]):
         max_heapify(arr, i, len(arr))
 
 
-# arr = [27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0]
-# arr1 = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
-# min_heapify(arr, 2, len(arr))
-# build_heapify(arr1)
+if __name__ == "__main__":
+    arr = [27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0]
+    arr1 = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
+    min_heapify(arr, 2, len(arr))
+    build_heapify(arr1)
+
+    print(arr1)
