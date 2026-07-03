@@ -20,6 +20,19 @@ def medianSlidingWindow(nums, k):
     return result
 
 
+def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
+    arr = nums1 + nums2
+    arr.sort()
+    n = len(arr)
+
+    def find_median():
+        if n % 2 == 1:
+            return float(arr[n // 2])
+        return (arr[n // 2 - 1] + arr[n // 2]) / 2
+
+    return find_median()
+
+
 if __name__ == "__main__":
     nums = [1, 2, 3, 4]
     k = 3
