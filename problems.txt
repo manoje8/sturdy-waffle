@@ -1,0 +1,2355 @@
+Problems link:
+https://docs.google.com/document/d/1cwLsH-9pdDA3Tc7RdGzL4PsuAQ3_OU1QiQzvcO0VKEE/edit?pli=1
+
+problems list:
+https://www.faceprep.in/data-structures/data-structures-programs/
+
+https://docs.google.com/document/d/1sePWaDYyt-oGvNJiPP6izwKUhM1FIK2KNUb1DDg-oc0/edit?pli=1
+
+Anarban Das repo:
+https://github.com/anirban-canvas/guvi
+
+List of Programs:
+
+Calculator program
+Odd or even
+Factorial
+Fibonacci series
+Prime number
+Armstrong number
+Number palindrome
+Automorphic number
+Peterson number
+Spy number
+
+==========================================================
+
+
+1) Prime Number:
+#include <stdio.h>
+
+int main()
+{
+    int n, temp =0;
+    scanf("%d",&n);
+    for(int i=1; i<=n;i++)
+    {
+        if(n%i ==0)
+        {
+            temp++;
+        }
+    }
+
+    if(temp == 2)
+    {
+        printf("a prime number");
+    }else
+    {
+        printf("A composite number");
+    }
+
+    return 0;
+}
+
+Note:
+when you get two zeros = prime number,
+more than two zeros = composite number
+
+Alternative:
+-> In for loop iterate through the n/2 or square root(n)
+
+--------------------------------------------------------------------------------------------
+2) Palindrome:
+Step 1:
+123 % 10 = 3     --> 3 * 100 = 300
+123 / 10 = 12
+
+Step 2:
+12 % 10 = 2      --> 2 * 10  = 20
+12 / 10 = 1
+
+Step 3:
+1 % 10 = 1       --> 1 * 1  = 1
+1 / 10 = 0--> End of process
+
+
+3 * 10 = 30
+2 * 10 = 20
+1 * 10 = 10
+
+         60
+
+Step 1: 3 --->  one's position  --> 3+(0*10) =3
+Step 2: 3 --->  10's position   --> 3*10 = 30
+Step 3: 3 --->  100's position  --> 30*10 = 300
+Step 4: 3 --->  1000th position --> 300*10 = 3000
+
+
+rem = 3
+result = 0
+result = rem + result * 10 = 3 + (0 * 10) = 3
+
+rem = 2
+result = 3
+result = rem + result * 10 = 2 + (3 * 10) = 32
+
+rem = 1
+result =32
+result = rem + result * 10 = 1 + (32* 10) = 321
+
+
+
+Splitting:
+
+input % 10
+input / 10
+
+Joining:
+
+result = rem + result * 10
+
+
+code ->
+
+let num = 153;
+let n = num;
+let sum = 0, rem;
+while(n > 0)
+{
+    rem = n % 10;
+    sum = (sum * 10) + rem;
+    n = Math.floor(n/10)
+}
+if(sum === num)
+{
+    console.log("Palindrome");
+}else{
+    console.log("Not a palindrome");
+}
+
+-----------------------------------------------------------
+3) peterson number
+
+Idea:
+input = 145
+
+1 = 1! = 1
+4 = 4! = 24
+5 = 5! = 120
+
+total = 145
+input === total
+
+->
+Get an input as n
+Use while-loop, condition will be n is greater than 0
+Initialize variable as remainder in ouside the while loop
+In while-loop, remainder = n % 10 to get the remainder value.
+use the for-loop inside while-loop, Initialize i= 1, condition = i <=n, iterate = i++
+initiaze variable as sum = 1, just outside the for-loop
+Inside for-loop, sum = sum * i
+And then Initialize varaible as result ouside while loop, to store the sum value.
+Ouside for-loop, result = result + sum.
+And then n = n / 10;
+Finally, Ouside the while loop to check the input is equal to result, if it's true
+-log as it is peterson number
+
+->code
+let input = 145;
+let n = input;
+let remainder;
+let result = 0;
+while(n > 0)
+{
+    remainder = n % 10;
+    let sum = 1;
+    for(let i=1; i<= remainder; i++)
+    {
+        sum = sum * i;
+    }
+    result = result + sum;
+    n = Math.floor(n/10);
+}
+if(result === input)
+{
+    console.log("peterson Number");
+}else
+{
+    console.log("Not a peterson Number")
+}
+
+-----------------------------------------------------------------------------
+
+4) Automorphic number
+hint: square the number , the result should be end with same input number
+
+let input = 5;
+let temp = input;
+let count = 0;
+let sqr = input * input;
+while(temp > 0)
+{
+    count++;
+    temp = Math.floor(temp/10);
+}
+
+let rem = sqr % Math.pow(10,count);
+
+if(rem === input)
+{
+    console.log("Automorphic Number");
+}else
+{
+    console.log("Not a Automorphic Number")
+}
+
+----------------------------------------------------------------------------------
+
+5) Binary search by recursive:
+Step 1: Array should be ascending order
+Algorithm:
+A = array, l = low, h = high, n = value to be search
+RBinarySearch(A,l,h,n)
+{
+    if(l == h)
+    {
+        if(A[l] == v)
+        {
+            return l
+        }else{
+            return 0;
+        }
+    }else{
+        mid = (low + high)/2
+        if(A[mid] == n)
+        {
+            return mid;
+        }else if(A[mid] < n)
+        {
+            return RBinarySearch(A, l, mid-1,n)
+        }else
+        {
+            return RBinarySearch(A,mid+1,h,n)
+        }
+    }
+}
+
+-------------------------------------------------------------------------------------------
+
+5) calculator:
+
+i)Get a two input a & b from user and also ask what kind of operation is going to use.
+ii)And then use switch function, argument will be the operation
+if it add = a + b, subract = a-b, divide = a/b
+
+code ->
+
+let a = 1;
+let b = 2;
+let operation = '+';
+
+switch(operation)
+{
+    case '+':
+    console.log(a+b);
+    break;
+
+    case '-':
+    console.log(a-b);
+    break;
+
+    case '*':
+    console.log(a*b);
+    break;
+
+    default:
+    console.log("Please enter the valid operation");
+}
+
+--------------------------------------------------------------------------
+6) Odd or Even:
+code:
+
+let input = 1;
+
+if(input % 2 === 0)
+{
+    console.log("Even");
+}else{
+    console.log("Odd");
+}
+
+---------------------------------------------------------------------------
+7) Factorial:
+Note: 5! = 5*4*3*2*1
+
+code:
+
+let input = 5;
+
+let temp = 1;
+
+for(let i =1; i<=input;i++)
+{
+    temp *= i;
+}
+console.log(temp);
+
+--------------------------------------------------------------------------------
+8) Fibonacci:
+Note: 5 = 0+1+2+3+4+5
+
+code:
+
+let input = 10;
+let a = 0, b = 1;
+let res = a + b;
+
+for(let i =3; i<=input;i++)
+{
+    console.log(res);
+    a = b;
+    b = res;
+    res = a + b;
+}
+---------------------------------------------------------------------------------
+9) Prime number:
+
+let input = 5;
+let temp = 0;
+
+for(let i = 1; i<=input;i++)
+{
+    if(input % i === 0)
+    {
+        temp++;
+    }
+}
+
+if(temp === 2)
+{
+    console.log("prime number");
+}else{
+    console.log("composite number")
+}
+
+-------------------------------------------------------------------------------
+10) Armstrong Number:
+hint: Split the number and count it. And then square the number
+
+code:
+
+let num = 153;
+let n = num, temp = num;
+let count = 0, rem, sum = 0;
+while(temp > 0)
+{
+  while(n > 0)
+  {
+      rem  = n % 10;
+      count++;
+      n = Math.floor(n/10);
+  }
+
+  rem = temp % 10;
+  sum += Math.pow(rem,count);
+  temp = Math.floor(temp/10);
+}
+
+if(sum === num)
+{
+  console.log("Armstrong number");
+}else
+{
+  console.log("Not a Armstrong");
+}
+
+------------------------------------------------------------------------------
+11) spy number:
+Hint: split the number, add and multiply it
+
+code:
+
+let num = 123;
+let temp = num;
+let sum = 0, mul = 1, rem;
+
+while(temp > 0)
+{
+    rem = temp % 10;
+    sum += rem;
+    mul *= rem;
+    temp = Math.floor(temp / 10);
+}
+
+if(sum === mul)
+{
+    console.log("Spy number");
+}else{
+    console.log("Not a spy number")
+}
+
+------------------------------------------------------------------------------------
+27/12/23
+---------
+12) nth prime number
+let input = 3;
+let num = 1, count = 0,i;
+while(count < input)
+{
+    num++;
+    for (i = 2; i < num; i++) {
+        if(num % i === 0)
+        {
+            break;
+        }
+    }
+    if(i === num)
+    {
+        count++;
+    }
+}
+
+console.log(num);
+
+-------------------------------------------------------------------------------
+13) nth Armstrong number
+
+let number = 11;
+let startValue = 0;
+let count = 1;
+while(number > count)
+{
+    startValue++;
+    let num = startValue, temp = startValue;
+    let digitcount = 0,rem,sum = 0;
+    //To count the digit in the number
+    while(num > 0)
+    {
+        digitcount++;
+        num = Math.floor(num/10)
+    }
+    //Get the armstrong number
+    while(temp > 0)
+    {
+        rem = temp % 10;
+        sum = sum + Math.pow(rem,digitcount);
+        temp = Math.floor(temp / 10);
+    }
+    if(sum == startValue)
+    {
+        count++;
+    }
+}
+console.log("The "+number+"th Armstrong Number is: "+startValue);
+
+----------------------------------------------------------------------------------------------------------
+14) Nth Automorphic Number
+
+let userInput = 9;
+let startValue = 0, count = 0;
+
+while(userInput > count)
+{
+    startValue++;
+    let temp = startValue, digitCount = 0;
+    let square = startValue* startValue;
+    while(temp > 0)
+    {
+        digitCount++;
+        temp = Math.floor(temp/10);
+    }
+    let remainder = square % Math.pow(10,digitCount);
+    if(remainder === startValue)
+    {
+        count++;
+    }
+}
+console.log(startValue);
+--------------------------------------------------------------------------------------------
+15) Nth Spy Number
+
+let userInput = 5;
+let startValue = 0, count = 0;
+while(userInput > count)
+{
+    startValue++;
+    let temp = startValue, sum = 0, mul = 1, rem;
+    while(temp > 0)
+    {
+        rem = temp % 10;
+        sum += rem;
+        mul *= rem;
+        temp = Math.floor(temp/10);
+    }
+    if(sum === mul)
+    {
+        count++;
+    }
+}
+console.log(startValue);
+
+---------------------------------------------------------------------------------------
+16) Nth number(prime No, automorphic no. , spy, peterson)
+
+let input = 20;
+let num = 1, count = 0,i;
+while(count < input)
+{
+    //prime number
+    num++;
+    for (i = 2; i < num; i++) {
+        if(num % i === 0)
+        {
+            break;
+        }
+    }
+    //spy number
+    let temp = num; sum = 0, mul = 1;
+    while(temp > 0)
+    {
+        rem = temp % 10;
+        sum += rem;
+        mul *= rem;
+        temp = Math.floor(temp/10);
+    }
+
+    let tempAt = num, digitCount = 0;
+    let square = num* num;
+    while(tempAt > 0)
+    {
+        digitCount++;
+        tempAt = Math.floor(tempAt/10);
+    }
+    let remainder = square % Math.pow(10,digitCount);
+
+    //Armstrong Number
+    let index = num, tempArms = num;
+    let digitcountArms = 0,remArms,sumArms = 0;
+    while(index > 0)
+    {
+        digitcountArms++;
+        index = Math.floor(index/10)
+    }
+    while(tempArms > 0)
+    {
+        remArms = tempArms % 10;
+        sumArms = sumArms + Math.pow(remArms,digitcountArms);
+        tempArms = Math.floor(tempArms / 10);
+    }
+    //peterson number
+    let tempPet = num, remPet, result = 0;
+    while(tempPet > 0)
+    {
+        remPet = tempPet % 10;
+        let sum = 1;
+        for(let i=1; i<= remPet; i++)
+        {
+            sum = sum * i;
+        }
+        result = result + sum;
+        tempPet = Math.floor(tempPet/10);
+    }
+
+    //----------------------------------------------------------------
+    if(i === num && sum === mul && remainder === num && sumArms == num && result === num)
+    {
+        console.log("Prime number, spy number, Automorphic, Armstrong and peterson No.: ", num);
+        count++;
+    }else if(i === num && sum === mul && remainder === num && sumArms == num)
+    {
+        console.log("Prime number, spy number, Automorphic, Armstrong No.: ", num);
+        count++;
+    }else if(i === num && sum === mul && remainder === num)
+    {
+        console.log("Prime number, spy number, Automorphic No.: ", num);
+        count++;
+    }else if(i === num && sum === mul)
+    {
+        console.log("Prime number, spy number No.: ", num);
+        count++;
+    }
+    else if (i === num)
+    {
+        console.log("Prime number: ", num);
+        count++;
+    }else if(sum === mul)
+    {
+        console.log("spy number: ", num);
+        count++;
+    }else if(remainder === num)
+    {
+        console.log("Automorphic number: ", num);
+        count++;
+    }else if(sumArms == num)
+    {
+        console.log("Armstrong number: ", num);
+        count++;
+    }else if(result === num)
+    {
+        console.log("peterson number: ", num);
+        count++;
+    }
+}
+
+
+---------------------------------------------------------------------------------------
+02-jan 2024
+Array:
+# Find second largest number in array
+# Remove duplicate
+# Sort an array
+# Find the prime numbers in array
+# Find armstrong numbers in array
+=============================================
+17) Sort an array
+
+let A = [1, 5, 2, 9, 6];
+
+for(let i =0; i<(A.length - 1); i++)
+    {
+    let min = i;
+    for(let j = i+1; j<A.length;j++)
+    {
+        if(A[i] > A[j])
+        {
+            min = j;
+        }
+    }
+    let temp = A[i];
+    A[i] = A[min];
+    A[min] = temp;
+    }
+
+console.log(A);
+------------------------------------------------------------------------------------
+18) Find the prime numbers in array
+
+let inputArray = [2, 4, 6 , 5, 8, 53];
+
+for(let arr of inputArray)
+{
+    let count = 0;
+    for(let i = 2; i<=arr;i++)
+    {
+        if(arr % i === 0)
+        {
+            count++;
+        }
+    }
+    if(count === 1)
+    {
+        console.log(arr + " is prime number");
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------
+19) Find armstrong numbers in array
+
+let inputArray = [1, 53, 370, 371, 11];
+
+for(let arr of inputArray)
+{
+   let temp = arr, count =0;
+   while(temp > 0)
+   {
+    count++;
+    temp = Math.floor(temp/10);
+   }
+
+   let tempNum = arr, rem, result = 0;
+   while(tempNum > 0)
+   {
+    rem = tempNum % 10;
+    result += Math.pow(rem,count);
+    tempNum = Math.floor(tempNum/10);
+   }
+   if(result === arr)
+   {
+    console.log("Armstrong Number: ",arr);
+   }
+}
+---------------------------------------------------------------------------------------------------------------
+20) Find second largest number in array
+
+let inputArray = [92, 53, 370, 37, 11, 9, 99];
+let len = inputArray.length;
+for(let i=0; i< (len-1);i++)
+{
+   for(let j =i+1; j<len;j++)
+   {
+    if(inputArray[i] < inputArray[j])
+    {
+        let temp = inputArray[i];
+        inputArray[i] = inputArray[j];
+        inputArray[j] = temp;
+    }
+   }
+}
+console.log(inputArray[1]);
+
+
+2nd --- Method----
+
+static int secondLargest(int[] arr) // [5, 2, 5, 8, 9, 6]
+{
+    int largest = -1, sLargest = -1;
+
+    for(int i=0; i< arr.length; i++)
+    {
+        if(arr[i] > largest)
+        {
+            sLargest = largest;
+            largest = arr[i];
+        }
+        else if(arr[i] < largest && arr[i] > sLargest)
+        {
+            sLargest = arr[i];
+        }
+    }
+
+    return sLargest;
+}
+------------------------------------------------------------------------------------------------------------
+21) Remove duplicate
+
+let inputArray = [1, 5, 7, 2, 7, 1, 5];
+let len = inputArray.length;
+
+/*
+inputArray.sort((a,b) => a-b) // sort an array using arrow function
+*/
+
+//to sort an array
+for(let i=0; i< (len-1);i++)
+{
+   for(let j =i+1; j<len;j++)
+   {
+    if(inputArray[i] > inputArray[j])
+    {
+        let temp = inputArray[i];
+        inputArray[i] = inputArray[j];
+        inputArray[j] = temp;
+    }
+   }
+}
+
+//to remove duplicates
+const dup = [];
+let i = 0;
+dup.push(inputArray[i]);
+for(let j =1; j<len; j++)
+{
+    if(inputArray[i] !== inputArray[j])
+    {
+        dup.push(inputArray[j])
+        i++;
+        inputArray[i] = inputArray[j];
+    }
+}
+
+console.log(dup);
+-------------------------------------------------------------------------------------------------------------
+4/1/24
+
+Matrix Programs:
+
+1. Add two matrices
+2. Program to find whether two matrices are equal or not
+3. Find lower and upper triangle matrix
+4. Frequency of odd and even numbers in a given matrix
+5. Transpose matrix
+
+String programs:
+
+1. Count the total number of characters in a string
+2. Two string are anagram
+3. Permutations and combinations
+4. Reverse string word by word without using reverse function
+5. Find maximum and minimum character occurring in a string
+
+Pattern Programs:
+
+1. Program to print left side triangle
+2. Program to print right side triangle
+3. Program to print full triangle
+4. Program to print inverted triangle
+5. Program to print rhombus
+
+===============================================================================
+Pattern Programs:
+1) Program to print left side triangle
+
+let n = 5;
+let temp = '';
+for(let i = 1; i <= n; i++)
+{
+    for(let j=n; j>i; j--)
+    {
+        temp += ' ';
+    }
+    for(let k=1; k<=i;k++)
+    {
+        temp += '*'
+    }
+    temp += '\n';
+}
+
+console.log(temp);
+-----------------------------------------------------------------------------------
+2. Program to print right side triangle
+
+let n = 5;
+let temp = '';
+for(let i = 1; i <= n; i++)
+{
+    for(let j=1; j<=i; j++)
+    {
+        temp += '*';
+    }
+    temp += '\n';
+}
+
+console.log(temp);
+------------------------------------------------------------------------------------
+3. Program to print full triangle:
+
+let n = 5;
+let temp = '';
+for(let i = 1; i <= n; i++)
+{
+    for(let j=n; j>i; j--)
+    {
+        temp += ' ';
+    }
+    for(let k=1; k<=i;k++)
+    {
+        temp += '*';
+    }
+    for(let l=2;l<=i;l++)
+    {
+        temp += '*';
+    }
+    temp += '\n';
+}
+
+console.log(temp);
+-----------------------------------------------------------------------------------
+4. Program to print inverted triangle
+
+let n = 5;
+let temp = '';
+
+for (let i = 0; i <= n; i++) {
+    for (let j = 0; j <= i; j++) {
+        temp += ' '
+    }
+    for (let k = i; k <= n; k++) {
+        temp += '*'
+    }
+    for (let l = i+1; l <= n; l++) {
+        temp += '*'
+    }
+    temp += '\n'
+}
+
+console.log(temp);
+
+-----------------------------------------------------------------------------------
+5. Program to print rhombus
+let n = 5;
+let temp = '';
+
+for (let i = 0; i < n; i++) {
+    for (let k = i; k < n; k++) {
+        temp += " "
+    }
+    for (let j = 0; j <= i; j++) {
+        temp += "*"
+    }
+    for (let l = 1; l <= i; l++) {
+        temp += "*"
+    }
+    temp += "\n"
+}
+
+for (let i = 1; i < n; i++) {
+    for (let k = 0; k <= i; k++) {
+        temp += " "
+    }
+    for (let j = i; j < n-1; j++) {
+        temp += "*"
+    }
+    for (let l = n-1; l >= i; l--) {
+        temp += "*"
+    }
+    temp += "\n"
+}
+
+console.log(temp);
+
+-----------------------------------------------------------------------------------
+String programs:
+
+1. Count the total number of characters in a string
+
+const str = "Hello world!";
+
+let count = 0;
+
+for(let i = 0; i< str.length; i++)
+{
+    if(str.charAt(i) !== ' ')
+    {
+        count++;
+    }
+}
+
+console.log(count);
+-------------------------------------------------------------------------------
+2.Reverse string word by word without using reverse function
+
+const str = "Hello world!";
+let len = str.length
+let temp = '';
+
+for(let i = (len-1); i>=0; i--)
+{
+    temp += str.charAt(i);
+}
+
+console.log(temp);
+
+---------------------------------------------------------------------------
+3. Find maximum and minimum character occurring in a string
+
+let input = "Reverse string word by word without"
+let str = input.toLowerCase();
+let len = str.length;
+let maxCount = 0,minCount = len; maxChr = 0, minChr = 0;
+
+for(let i=0; i< len-1;i++)
+{
+    if(str[i] != ' ')
+    {
+        let chrCount = 0;
+        for(let j=i+1; j<len;j++)
+        {
+            if(str[i] === str[j])
+            {
+                chrCount++;
+            }
+        }
+
+        if(maxCount<chrCount)
+        {
+            maxCount = chrCount;
+            maxChr = str[i];
+        }
+
+        if(minCount > chrCount)
+        {
+            minCount = chrCount;
+            minChr = str[i];
+        }
+    }
+}
+
+console.log("Max occurence character: ", maxChr);
+console.log("Min occurence character: ", minChr);
+
+let temp = {};
+for(let chr of str)
+{
+    if(temp[chr])
+    {
+        temp[chr]++;
+    }else{
+        temp[chr] = 1;
+    }
+}
+-----------------------------------------------------------------------------------
+4) two string are anagram or not
+
+let str1 = "George Bush";
+let str2 = 'He bugs Gore';
+
+let Arr1 = str1.replace(/\s+/g,'').toLowerCase();
+let Arr2 = str2.replace(/\s+/g,'').toLowerCase();
+
+//length
+let n1 = Arr1.length, n2 = Arr2.length;
+
+if(n1 !== n2)
+{
+    console.log("Not an Anagram");
+}
+
+//sort
+let srtArr1 = Arr1.split('').sort();
+let srtArr2 = Arr2.split('').sort();
+
+
+for(let i=0; i<n1; i++)
+{
+    if(srtArr1[i] != srtArr2[i])
+    {
+        console.log("Not an Anagram");
+    }
+}
+
+console.log("Anagram");
+
+------------------------------------------------------------------------------------
+5) permutation and combinations
+permutation : ABc => nPr(3!) => AB, AC, BA, BC, CA, and CB
+conination : ABC => nCr => AB, BC, CA
+
+permutation:
+
+let str = "ABC";
+let n = str.length;
+
+function swap(str, i, j)
+{
+    let chrArr = str.split('');
+    let temp = chrArr[i];
+    chrArr[i] = chrArr[j];
+    chrArr[j] = temp;
+    return chrArr.join('')
+}
+
+function permute(str,l,r)
+{
+    if(l == r)
+    {
+        console.log(str);
+    }else
+    {
+        for(let i=l; i<= r; i++)
+        {
+            str = swap(str, l, i);
+            permute(str, l+1, r);
+            str = swap(str, l, i)
+        }
+    }
+}
+
+permute(str, 0 , n-1)
+===========================
+
+combination:
+
+let str = "ABCDE";
+let strArr = str.split("")
+let n = str.length;
+
+function combination(str)
+{
+    let temp = [];
+    for (let i = 0; i < str.length; i++) {
+        for (let j = i+1; j < str.length; j++) {
+            temp.push(str.slice(i,j))
+        }
+
+    }
+    return temp
+}
+
+let result = combination(strArr);
+console.log(result);
+
+-------------------------------------------------------------------------------------
+Matrix Programs:
+
+1) Add two matrices
+let A = [[1, 3],[2, 4]], B = [[1, 3],[2, 4]]
+let C = [];
+
+for(let i = 0; i< A.length; i++)
+{
+    C[i] = []
+    for(let j=0; j<B.length; j++)
+    {
+        C[i][j] = (A[i][j] + B[i][j]);
+    }
+}
+
+console.log(C)
+
+-------------------------------------------------------------------------------------
+2. Program to find whether two matrices are equal or not
+
+let A = [[1, 3],[2, 4]], B = [[1, 3],[2, 4]]
+
+let flag = true;
+
+for(let i = 0; i< A.length; i++)
+{
+    for(let j=0; j<B.length; j++)
+    {
+        if(A[i][j] !== B[i][j]){
+           flag = false;
+        }
+    }
+}
+
+console.log(flag);
+
+--------------------------------------------------------------------------------
+3. Find lower and upper triangle matrix
+
+const A = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+const B = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+
+for (let i = 0; i < A.length; i++) {
+    for (let j = 0; j < A.length; j++) {
+        if(i > j)
+        {
+            A[i][j] = 0
+        }
+    }
+}
+
+for (let i = 0; i < A.length; i++) {
+    for (let j = 0; j < A.length; j++) {
+        if(i < j)
+        {
+            B[i][j] = 0
+        }
+    }
+}
+
+console.log("upper triangle");
+console.log(A);
+console.log("lower triangle");
+console.log(B);
+
+--------------------------------------------------------------------------------
+4. Frequency of odd and even numbers in a given matrix
+
+const A = [
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]
+];
+
+let odd = 0, even = 0;
+for (let i = 0; i < A.length; i++) {
+    for (let j = 0; j < A.length; j++) {
+        if(A[j][i] % 2 == 0)
+        {
+            even++;
+        }else{
+            odd++;
+        }
+    }
+
+}
+
+console.log(`odd = ${odd}, even = ${even}`);
+
+--------------------------------------------------------------------------------
+5. Transpose matrix
+const A = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+const B = []
+
+for (let i = 0; i < A.length; i++) {
+    B[i] = []
+    for (let j = 0; j < A.length; j++) {
+        B[i][j] = A[j][i];
+    }
+}
+
+console.log(B);
+
+--------------------------------------------------------------------------------
+Find LCM in a Array as Integer
+
+Input:  2 3 4 5
+
+Output: 60 => 2*3*2*5
+
+    let arr = [2, 3, 4, 5]
+    let n = arr.length;
+    let temp = [];
+
+    function gcd(a, b)
+    {
+        if(b===0)
+        {
+            return a;
+        }
+
+        return gcd(b, a%b)
+    }
+
+    function lcm(arr, n)
+    {
+        let res = arr[0];
+
+        for(let i=1; i< n; i++)
+        {
+            res = ((arr[i] * res) / (gcd(arr[i], res)))
+        }
+
+        return res
+    }
+
+    console.log(lcm(arr, n))
+----------------------------------------------------------------------
+Maximum sub-array
+
+    let n = 7
+    let arr = [1, 2, 3, 4, 5, 6, 7]
+
+    let max = Number.MIN_SAFE_INTEGER;
+
+    for(let i=0; i<n; i++)
+    {
+        let sum = 0
+        for(let j=i; j<n; j++)
+        {
+            sum += arr[j]
+        }
+
+        max = Math.max(max, sum)
+    }
+
+    console.log(max)
+
+==> Output: 28
+
+------------------------------------------------------------------
+
+candane's number
+
+Hint: formula = (1/n+1)(2n!/n!n!)
+
+let a = 1
+
+let result = []
+
+for(let i=0; i<=a; i++)
+{
+    let num = 2*i;
+    let factNum = fact(num)
+    let denom = (i+1)*(fact(i)*fact(i))
+
+    result.push(factNum/denom)
+}
+
+function fact(num)
+{
+    let val = 1;
+    if(num === 0 || num === 1)
+    {
+        return 1
+    }else{
+        for(let i=1; i<= num; i++)
+        {
+            val *= i
+        }
+        return val
+    }
+
+}
+
+console.log(result.join(" "))
+
+Output = 1 1
+
+--------------------------------------------------------------------
+Rotate the array k times
+
+INPUT
+4 1
+3 2 4 1
+OUTPUT
+2 4 1 3
+
+let [n, k] = [4 , 1]
+let arr = [3, 2, 4, 1];
+
+let start = arr.slice(0, k)
+let end = arr. splice(k)
+
+
+let res = end.concat(start)
+console.log(res.join(" "))
+
+---------------------------------- Combination Sum ------------------------------------
+
+Input: candidates = [2,3,6,7], target = 7
+Output: [[2,2,3],[7]]
+
+Input: candidates = [2,3,5], target = 8
+Output: [[2,2,2,2],[2,3,3],[3,5]]
+
+/**
+ * @param {number[]} candidates
+ * @param {number} target
+ * @return {number[][]}
+ */
+var combinationSum = function(candidates, target) {
+    let result = []
+    possibleCombination(0, candidates, target, result, [])
+    return result;
+};
+
+function possibleCombination(ind, inputArr, target, total, currentTotal)
+{
+    if(ind === inputArr.length)
+    {
+        if(target === 0)
+        {
+
+            total.push([...currentTotal])
+        }
+        return
+    }
+
+    if(inputArr[ind] <= target)
+    {
+        currentTotal.push(inputArr[ind])
+        possibleCombination(ind, inputArr, target-inputArr[ind], total, currentTotal)
+        currentTotal.pop()
+    }
+    possibleCombination(ind+1, inputArr, target, total, currentTotal)
+}
+
+
+-------------------------Combination sum 2------------------------------------
+Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
+
+Each number in candidates may only be used once in the combination.
+
+Note: The solution set must not contain duplicate combinations.
+
+
+Input: candidates = [10,1,2,7,6,1,5], target = 8
+Output:
+[
+[1,1,6],
+[1,2,5],
+[1,7],
+[2,6]
+]
+
+
+var combinationSum2 = function(candidates, target) {
+    let res = [];
+    candidates.sort((a, b) => a - b); // Sort the array to handle duplicates
+    sum(0, candidates, target, res, []);
+    console.log(res);
+    return res;
+};
+
+function sum(ind, arr, target, res, curr) {
+    if (target === 0) {
+        res.push([...curr]); // If target is 0, we found a valid combination
+        return;
+    }
+
+    for (let i = ind; i < arr.length; i++) {
+        if (arr[i] > target) break; // If the current number is greater than the target, stop further processing
+
+        // Skip duplicates to avoid duplicate combinations
+        if (i > ind && arr[i] === arr[i - 1]) continue;
+
+        curr.push(arr[i]); // Include the current number in the combination
+        sum(i + 1, arr, target - arr[i], res, curr); // Recur with the next index and reduced target
+        curr.pop(); // Backtrack and remove the last number to try other combinations
+    }
+}
+
+let arr = [10, 1, 2, 7, 6, 1, 5];
+let target = 8;
+combinationSum2(arr, target);
+
+
+
+------------------------------------ Container with most water ----------------------------
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var maxArea = function(height) {
+    let n = height.length;
+    let left = 0;
+    let right = n-1;
+    let area = 0;
+
+    while(left < right)
+    {
+        area = Math.max(area, Math.min(height[left], height[right])*(right-left))
+        if(height[left] < height[right])
+        {
+            left++;
+        }else{
+            right--;
+        }
+    }
+
+    return area;
+};
+
+--------------------------------------------- Majority Element -------------------------------------------------------
+Source: https://www.youtube.com/watch?v=nP_ns3uSh80
+
+Given an array nums of size n, return the majority element.
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+Example 1:
+Input: nums = [3,2,3]
+Output: 3
+
+Example 2:
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+
+=====================Solution 1==============================
+/**
+ * O(n) -> Moore's voting algorithm
+ * @param {number[]} nums
+ * @return {number}
+ */
+var majorityElement = function(nums) {
+    const major = Math.floor(nums.length/2)
+
+    let val;
+    let count = 0;
+
+    for(let i=0; i<nums.length; i++)
+    {
+        if(count === 0)
+        {
+            count++;
+            val = nums[i];
+        }
+        else if(val === nums[i])
+        {
+            count++;
+        }
+        else {
+            count--;
+        }
+    }
+
+    return val
+};
+
+==========================Solution 2-> O(n2)================
+
+var majorityElement = function(nums) {
+    const major = Math.floor(nums.length/2)
+
+    let temp = {}
+
+    for(let i=0; i<nums.length; i++)
+    {
+        let val = nums[i];
+        if(temp[val])
+        {
+            temp[val]++
+        }else {
+            temp[val] = 1;
+        }
+    }
+
+    console.log(temp, major)
+
+    for(let key in temp)
+    {
+        if(temp[key] > major)
+        {
+            return Number(key);
+        }
+    }
+};
+
+
+--------------------------------- Top K Frequent Elements -------------------------------
+Given an integer array nums and an integer k, return the k most frequent elements.
+You may return the answer in any order.
+
+Example 1:
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+Example 2:
+Input: nums = [1], k = 1
+Output: [1]
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var topKFrequent = function(nums, k) {
+    let obj = {}
+
+    // for(let i=0; i<nums.length; i++)
+    // {
+    //     let ele = nums[i]
+    //     if(obj[ele])
+    //     {
+    //         obj[ele]++
+    //     }else
+    //     {
+    //         obj[ele] = 1;
+    //     }
+    // }
+
+    for(let num of nums)
+    {
+        obj[num] = (obj[num] || 0) + 1
+    }
+
+    let sorting = Object.entries(obj).sort((a,b) => b[1] - a[1])
+
+    let temp = []
+    for(let i=0; i<k; i++)
+    {
+        temp.push(Number(sorting[i][0]))
+    }
+
+    return temp
+};
+
+----------------------------------------------------------------------------
+You are climbing a staircase. It takes n steps to reach the top.
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+Example 1:
+Input: n = 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+
+Example 2:
+Input: n = 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function(n) {
+    if(n === 0 || n === 1) return 1;
+
+    let firstStep = 1;
+    let secondStep = 1;
+
+    for(let i=2; i<=n; i++)
+    {
+        let currentStep = firstStep + secondStep
+        firstStep = secondStep;
+        secondStep = currentStep;
+    }
+
+    return secondStep;
+};
+
+------------------------------Pascal triangle--------------------------------------
+Example 1:
+Input: numRows = 5
+Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+
+Example 2:
+Input: numRows = 1
+Output: [[1]]
+
+
+
+/**
+ * @param {number} numRows
+ * @return {number[][]}
+ */
+var generate = function(numRows) {
+    let arr = [];
+
+    for(let i=0; i<numRows; i++)
+    {
+        arr[i] = []
+        for(let j=0; j<=i; j++)
+        {
+            if(i === j || j === 0)
+            {
+                arr[i].push(1);
+            }
+            else {
+                arr[i].push(arr[i-1][j-1] + arr[i-1][j])
+            }
+        }
+    }
+
+    return arr
+};
+
+-----------------------------Buy and sell stock-------------------------------
+
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function(prices) {
+    let min = Number.MAX_VALUE;
+    let profit = 0
+
+    for(let i=0; i<prices.length; i++)
+    {
+        // first to find minimum value to buy a stock
+        if(prices[i] < min)
+        {
+            min = prices[i]
+        }
+
+        let diff = prices[i] - min
+
+        // After finding min stock and check the next value
+        if( diff > profit)
+        {
+            profit = diff
+        }
+    }
+
+    return profit
+};
+
+
+--------------------------------Shuffle String------------------------------------
+function shuffle(str)
+{
+  let temp = str.split("")
+  for(let i=1; i<=str.length; i++)
+  {
+    let ran = Math.floor((Math.random()*10) % i)
+    let a = temp[i]
+    temp[i] = temp[ran]
+    temp[ran] = a
+  }
+
+  console.log(temp.join(""))
+}
+
+shuffle("Hello")
+
+----------------------------------Remove duplicates and original from list---------------
+
+let input = "Hello, World"
+
+let inpArr = input.split("")
+
+let temp = {}
+
+let result = ''
+
+for(let i=0; i<inpArr.length; i++)
+{
+  let val = inpArr[i]
+  if(temp[val])
+  {
+    temp[val]++
+  }
+  else
+  {
+    temp[val] = 1
+  }
+}
+
+for([k,v] of Object.entries(temp))
+{
+  if(v == 1)
+  {
+    result += k
+  }
+}
+
+console.log(result) //He, Wrd
+
+--------------------------------------------------------------
+First element is first maximum and second element is first minimum
+Input: [1,2,3,4,5,6,7]
+Output: [7,1,6,2,5,3,4]
+
+let arr = [1,2,3,4,5,6,7]
+
+
+let n = arr.length
+
+let r = n-1
+let l = 0
+
+let temp = []
+
+for(let i=0; i<n; i++)
+{
+  temp[i] = i%2 == 0 ? arr[r--] : arr[l++]
+}
+
+console.log(temp)
+
+Output:
+
+[ 7, 1, 6, 2, 5, 3, 4 ]
+
+------------------------------Reverse string by recursive ---------------------------------------
+
+let str = "one two three"
+
+let strArr = str.split(" ")
+
+function reverse(str, n, temp=[])
+{
+  if(n < 0)
+  {
+    return temp
+  }
+
+  temp.push(str[n-1])
+
+  return reverse(str, n-1, temp)
+}
+
+console.log(reverse(strArr, strArr.length).join(" "))
+
+Output: "three two one"
+
+------------------------------------------------------------------------
+length of the string should be odd
+
+let s = "qwert"
+
+let n = s.length
+
+
+let res = ""
+
+let l = n-1
+let p = 0
+
+for(let i=0; i<n; i++)
+{
+  let row = ""
+  for(let j=0; j<n; j++)
+  {
+    if(i==j)
+    {
+      row += s[i]
+    }
+    else if(i==p && j==l)
+    {
+      row += s[j]
+    }
+    else
+    {
+      row +=" "
+    }
+
+  }
+  res += row + "\n"
+  l--
+  p++
+}
+
+
+console.log(res)
+
+Result:
+q   t
+ w r
+  e
+ w r
+q   t
+
+------------------maximum sum of contiguous sub array ---------------------------
+
+Given array find maximum sum of contiguous sub array
+{-2 -3 4 -1 -2 1 5 -3}
+output 7 elements [ 4 -1 -2 1 5]
+
+===========Recursive O(n2)=============
+let inp = [-2, -3, 4, -1, -2, 1, 5, -3]
+
+let n = inp.length
+
+function sumCom(arr, i, n, curr, max, resArr)
+{
+  if (i == n)
+  {
+    return resArr;
+  }
+
+  let sum = 0
+  let temp = []
+
+  for(let p = i; p < curr; p++)
+  {
+    temp.push(arr[p])
+    sum = sum + arr[p]
+  }
+
+
+
+  if (sum > max)
+  {
+    max = sum
+    resArr = temp
+  }
+
+  if(curr == n)
+  {
+    return sumCom(arr, i+1, n, i+1, max, resArr)
+  }
+  else
+  {
+    return sumCom(arr, i, n, curr+1, max, resArr)
+  }
+}
+
+console.log(sumCom(inp, 0, n, 0 ,-Infinity, []))
+
+=========Kadane's O(n)===========
+
+let inp = [-2, -3, 4, -1, -2, 1, 5, -3];
+
+function kadaneWithIndices(arr) {
+  let maxSoFar = arr[0]; // Stores the maximum sum encountered so far
+  let currentMax = arr[0]; // Stores the sum of the current subarray
+  let start = 0, end = 0, tempStart = 0; // Variables to track indices
+
+  for (let i = 1; i < arr.length; i++) {
+    // If the current element alone is better than the current subarray, reset
+    if (arr[i] > currentMax + arr[i]) {
+      currentMax = arr[i];
+      tempStart = i; // Update the starting index for the current subarray
+    } else {
+      currentMax += arr[i];
+    }
+
+    // Update the maximum sum and indices if a new maximum is found
+    if (currentMax > maxSoFar) {
+      maxSoFar = currentMax;
+      start = tempStart; // Finalize the start index
+      end = i;           // Finalize the end index
+    }
+  }
+
+  return {
+    maxSum: maxSoFar,
+    subarray: arr.slice(start, end + 1), // Extract the subarray
+    indices: [start, end] // Indices of the subarray
+  };
+}
+
+const result = kadaneWithIndices(inp);
+console.log("Maximum Sum:", result.maxSum);
+console.log("Maximum Subarray:", result.subarray);
+console.log("Indices:", result.indices);
+
+Output:
+Maximum Sum: 7
+Maximum Subarray: [4, -1, -2, 1, 5]
+Indices: [2, 6]
+
+-----------------------------Patterns----------------------------------------
+
+let n = 6
+let c = 1
+let m = n
+let s = ""
+
+for(let i=1; i<=n; i++)
+{
+  for(let j=i; j<=n; j++)
+  {
+    s += c + "    "
+    c = c + m
+    m--
+  }
+  m = n
+  c = i+1
+  s+= "\n"
+}
+
+
+console.log(s)
+
+Output:
+
+1    7    12    16    19    21
+2    8    13    17    20
+3    9    14    18
+4    10    15
+5    11
+6
+
+----------------------------Sudoku Solver--------------------------------
+rite a program to solve a Sudoku puzzle by filling the empty cells.
+
+A sudoku solution must satisfy all of the following rules:
+
+    Each of the digits 1-9 must occur exactly once in each row.
+    Each of the digits 1-9 must occur exactly once in each column.
+    Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.
+
+The '.' character indicates empty cells.
+
+
+/**
+ * @param {character[][]} board
+ * @return {void} Do not return anything, modify board in-place instead.
+ */
+
+var solveSudoku = function(board) {
+    start(board)
+};
+
+function start(board)
+{
+    let n = board.length
+    for(let i=0; i<n; i++)
+    {
+        for(let j=0; j<n; j++)
+        {
+            if(board[i][j] == ".")
+            {
+                for(let k=1; k<=9; k++)
+                {
+                    if(isValid(board, i, j, k))
+                    {
+                        board[i][j] = k.toString()
+
+                        if(start(board))
+                        {
+                            return true
+                        }else
+                        {
+                            board[i][j] = "."
+                        }
+                    }
+                }
+
+            return false
+            }
+        }
+    }
+
+    return true
+}
+
+function isValid(board, row, col, hole)
+{
+    for(let i=0; i<9; i++)
+    {
+        if(board[row][i] == hole)
+        {
+            return false
+        }
+
+        if(board[i][col] == hole)
+        {
+            return false
+        }
+
+        let subRow = 3* Math.floor(row/3) + Math.floor(i /3)
+        let subCol = 3*Math.floor(col/3) + i%3
+
+        if(board[subRow][subCol] == hole)
+        {
+            return false
+        }
+    }
+
+    return true
+}
+
+-----------------------------------N-queen------------------------------------
+var solveNQueens = function(n) {
+    let res = [];
+    let arr = new Array(n).fill().map(() => new Array(n).fill('.'));
+    possibleCombination(0, n, arr, res);
+
+    console.log("Solutions:", res); // Print final solutions
+};
+
+function possibleCombination(col, n, arr, res) {
+    if (col >= n) {
+        // Store a valid solution
+        res.push(arr.map(a => a.join("")));
+        return;
+    }
+
+    for (let i = 0; i < n; i++) {
+        if (isValid(col, i, arr)) {
+            arr[i][col] = 'Q'; // Place the queen
+            console.log(`Placed 'Q' at (${i}, ${col}):`);
+            printBoard(arr); // Debug current board
+
+            possibleCombination(col + 1, n, arr, res); // Recur for next column
+
+            arr[i][col] = "."; // Backtrack
+            console.log(`Backtracked from (${i}, ${col}):`);
+            printBoard(arr); // Debug current board
+        }
+    }
+}
+
+function isValid(col, row, arr) {
+    let n = arr.length;
+
+    // Check same row
+    for (let i = 0; i < col; i++) {
+        if (arr[row][i] == "Q") {
+            return false;
+        }
+    }
+
+    // Check upper diagonal
+    for (let i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
+        if (arr[i][j] == "Q") {
+            return false;
+        }
+    }
+
+    // Check lower diagonal
+    for (let i = row + 1, j = col - 1; i < n && j >= 0; i++, j--) {
+        if (arr[i][j] == "Q") {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// Helper function to print the board
+function printBoard(board) {
+    board.forEach(row => console.log(row.join(" ")));
+    console.log("\n");
+}
+
+// Call the function
+solveNQueens(4);
+
+
+-----------------------------Spiral Matrix---------------------------------------
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ */
+var spiralOrder = function(matrix) {
+    let temp = [];
+    if (matrix.length === 0) return temp; // Handle empty matrix case
+
+    let m = matrix.length;    // Number of rows
+    let n = matrix[0].length; // Number of columns
+    let top = 0;
+    let bottom = m - 1;
+    let left = 0;
+    let right = n - 1;
+
+    while (top <= bottom && left <= right) {
+        // Traverse from left to right along the top row
+        for (let i = left; i <= right; i++) {
+            temp.push(matrix[top][i]);
+        }
+        top++;
+
+        // Traverse from top to bottom along the right column
+        for (let i = top; i <= bottom; i++) {
+            temp.push(matrix[i][right]);
+        }
+        right--;
+
+        // Traverse from right to left along the bottom row (if it exists)
+        if (top <= bottom) {
+            for (let i = right; i >= left; i--) {
+                temp.push(matrix[bottom][i]);
+            }
+            bottom--;
+        }
+
+        // Traverse from bottom to top along the left column (if it exists)
+        if (left <= right) {
+            for (let i = bottom; i >= top; i--) {
+                temp.push(matrix[i][left]);
+            }
+            left++;
+        }
+    }
+
+    return temp;
+};
+
+---------------------------Factorial Trailing zero-------------------------------------
+Hint: http://www.purplemath.com/modules/factzero.htm
+
+Given an integer n, return the number of trailing zeroes in n!.
+
+Note that n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1.
+
+Example 1:
+Input: n = 3
+Output: 0
+Explanation: 3! = 6, no trailing zero.
+
+Example 2:
+Input: n = 5
+Output: 1
+Explanation: 5! = 120, one trailing zero.
+
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var trailingZeroes = function(n) {
+    let count = 0
+    while(n >= 5)
+    {
+        n = Math.floor(n/5)
+        count += n
+    }
+
+
+    return count
+
+};
+
+---------------------------------------------------
+Sept 24, 2025
+The 3n + 1 Problem
+
+Input
+The input will consist of a series of pairs of integers i and j, one pair of integers per
+line. All integers will be less than 1,000,000 and greater than 0.
+Output
+For each pair of input integers i and j, output i, j in the same order in which they
+appeared in the input and then the maximum cycle length for integers between and
+including i and j. These three numbers should be separated by one space, with all three
+numbers on one line and with one line of output for each line of input.
+Sample Input
+1 10
+100 200
+201 210
+900 1000
+Sample Output
+1 10 20
+100 200 125
+201 210 89
+900 1000 174
+
+
+
+
+inp = input()
+i, j = [int(x) for x in inp.split(' ')]
+
+maxVal = 0
+
+for x in range(i, j):
+  count = 1
+  val = x
+  while val != 1:
+    if val % 2 == 0:
+      val //=2
+    else:
+      val = (val * 3) + 1
+    count += 1
+
+  if maxVal < count:
+    maxVal = count
+
+print(maxVal)
+
+
+-----------------------------------------------------------
+
+Radix sort
+
+arr = [22, 5, 3, 6, 10, 12]
+
+
+def counting_sort(arr, m):
+  n = len(arr)
+
+  result = [0] * n
+
+  count = [0] * 10
+
+  for i in range(0, n):
+    index = (arr[i] // m) % 10
+    count[index] += 1
+
+
+  for i in range(1, 10):
+    count[i] += count[i-1]
+
+  i = n-1
+  while i >= 0:
+    index = arr[i] // m
+    result[count[index % 10] -1] = arr[i]
+    count[index % 10] -= 1
+    i -=1
+
+  i = 0
+
+  for i in range(0, len(arr)):
+    arr[i] = result[i]
+
+def radix_sort(arr):
+  m = max(arr)
+
+  exp = 1
+
+  while m / exp >= 1:
+    counting_sort(arr, exp)
+    exp *=10
+
+
+radix_sort(arr)
+
+print(arr)
+
+------------------------------------------------
+### Invert Binary Tree
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def invertTree(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: Optional[TreeNode]
+        """
+        if root is None:
+            return
+
+        invert_left = self.invertTree(root.left)
+        invert_right = self.invertTree(root.right)
+
+        root.left = invert_right
+        root.right = invert_left
+
+        return root
+
+Input: root = [4,2,7,1,3,6,9]
+Output: [4,7,2,9,6,3,1]
+
+---------------------UNIQUE Binary Tree-----------------------------------
+
+Given an integer n, return all the structurally unique BST's (binary search trees),
+which has exactly n nodes of unique values from 1 to n. Return the answer in any order.
+
+Input: n = 3
+Output: [[1,null,2,null,3],[1,null,3,2],[2,1,3],[3,1,null,null,2],[3,2,null,1]]
+
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
+
+        arr = []
+        for i in range(1, n+1):
+            arr.append(i)
+
+        result = self.permutations(arr)
+
+        print(result)
+
+        total = []
+        seen = set()
+
+        for i in result:
+            root = None
+            for j in i:
+                root = self.BST(root, j)
+
+            serial = self.serialize(root)
+            if serial not in seen:
+                seen.add(serial)
+                total.append(root)
+
+        return total
+
+
+    def serialize(self, root):
+        if not root:
+            return "None"
+        return f"{root.val},{self.serialize(root.left)},{self.serialize(root.right)}"
+
+
+    def BST(self, root, val):
+
+        if root is None:
+            root = TreeNode(val)
+            return root
+
+        if val < root.val:
+            root.left = self.BST(root.left, val)
+        else:
+            root.right = self.BST(root.right, val)
+
+        return root
+
+
+    def permutations(self, arr):
+        n = len(arr)
+        if n <= 1:
+            return [arr]
+
+        result = []
+
+        for i in range(n):
+            current = arr[i]
+            rem = arr[:i] + arr[i+1:]
+
+            for p in self.permutations(rem):
+                result.append([current] + p)
+
+        return result
+
+
+-------------------------------------------------------
+Given an integer n, return the number of structurally unique BST's
+(binary search trees) which has exactly n nodes of unique values from 1 to n.
+
+
+class Solution:
+    def numTrees(self, n: int) -> int:
+        # Using Catalan number formula: C(2n,n)/(n+1)
+        result = 1
+        for i in range(n):
+            result = result * (2 * n - i) // (i + 1)
+        return result // (n + 1)
