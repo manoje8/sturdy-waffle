@@ -1,10 +1,10 @@
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.4
+    rev: v0.16.3
     hooks:
       - id: ruff
         args: [--fix]
-        files: ^(dags|plugins|tests)/
+      - id: ruff-format
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
@@ -12,4 +12,5 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
+      - id: check-toml
       - id: check-merge-conflict

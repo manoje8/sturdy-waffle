@@ -1,7 +1,8 @@
 """
 A subsequence is not the same as a subarray.
 A subarray is contiguous (e.g., [2,5,3]).
-A subsequence is derived by deleting some elements without changing the order of the remaining elements.
+A subsequence is derived by deleting some elements without changing
+the order of the remaining elements.
 For [10,9,2,5,3,7,101,18], [2,3,7,101] is a subsequence (we skipped 5). We cannot reorder numbers.
 
 
@@ -14,7 +15,8 @@ Imagine you are reading the array from left to right. For every element nums[i],
 If I decide that nums[i] is the last element of my increasing subsequence,
 what is the longest subsequence I can build ending here?
 "
-To answer that, you must look back at all previous elements nums[j] where j < i. If nums[j] < nums[i],
+To answer that, you must look back at all previous elements nums[j]
+where j < i. If nums[j] < nums[i],
 then you can take the best subsequence ending at j and simply append nums[i] to it.
 """
 
@@ -58,7 +60,8 @@ x=9: bisect_left([10], 9) = 0 → replace → tails = [9]
 x=2: bisect_left([9], 2) = 0 → replace → tails = [2]
 x=5: bisect_left([2], 5) = 1 → append → tails = [2,5]
 x=3: bisect_left([2,5], 3) = 1 → replace → tails = [2,3]
-(Note: We replaced 5 with 3. We lost the subsequence [2,5] but gained [2,3] which is better for future numbers like 4, 7, etc.)
+(Note: We replaced 5 with 3. We lost the subsequence [2,5] but gained [2,3]
+which is better for future numbers like 4, 7, etc.)
 x=7: bisect_left([2,3], 7) = 2 → append → tails = [2,3,7]
 x=101: bisect_left([2,3,7], 101) = 3 → append → tails = [2,3,7,101]
 x=18: bisect_left([2,3,7,101], 18) = 3 → replace → tails = [2,3,7,18]

@@ -5,7 +5,7 @@ from graph import Graph
 
 def prim(graph, start):
     mst = []
-    visited = set([start])
+    visited = {start}
     edges = []
 
     for neighbour, weight in graph[start]:

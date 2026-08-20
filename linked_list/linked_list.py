@@ -28,7 +28,7 @@ class LinkedList:
             self.head = new_node
             return
 
-        for i in range(index - 1):
+        for _i in range(index - 1):
             if current is None:
                 raise IndexError("Index out of range")
             current = current.next
@@ -59,7 +59,7 @@ class LinkedList:
             self.head = temp.next
             return
 
-        for i in range(index - 1):
+        for _i in range(index - 1):
             if temp is None:
                 raise IndexError("Index out of range")
             temp = temp.next

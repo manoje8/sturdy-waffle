@@ -1,6 +1,6 @@
 import math
 
-from heaps.heapify import max_heapify, build_heapify, parent
+from heaps.heapify import build_heapify, max_heapify, parent
 
 
 def heap_maximum(arr):

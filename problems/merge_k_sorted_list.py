@@ -39,9 +39,7 @@ class Solution:
 
         for i, node in enumerate(lists):
             if node:
-                heapq.heappush(
-                    heap, (node.val, i, node)
-                )  # add values inside the set with index
+                heapq.heappush(heap, (node.val, i, node))  # add values inside the set with index
 
         dummy = ListNode()
         temp = dummy

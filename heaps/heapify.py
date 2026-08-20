@@ -20,10 +20,7 @@ def max_heapify(arr, i, n):
     l = left(i)
     r = right(i)
 
-    if l < n and arr[l] > arr[i]:
-        largest = l
-    else:
-        largest = i
+    largest = l if l < n and arr[l] > arr[i] else i
 
     if r < n and arr[r] > arr[largest]:
         largest = r
@@ -37,10 +34,7 @@ def min_heapify(arr, i, n):
     l = left(i)
     r = right(i)
 
-    if l < n and arr[l] < arr[i]:
-        smallest = l
-    else:
-        smallest = i
+    smallest = l if l < n and arr[l] < arr[i] else i
 
     if r < n and arr[r] < arr[smallest]:
         smallest = r

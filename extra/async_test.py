@@ -27,9 +27,7 @@ async def main():
     res2 = await task2
     print(res1, res2)
 
-    results = await asyncio.gather(
-        brew("Idly", 3), brew("Sambar", 4), brew("Espresso", 5)
-    )
+    results = await asyncio.gather(brew("Idly", 3), brew("Sambar", 4), brew("Espresso", 5))
 
     print(results)
 

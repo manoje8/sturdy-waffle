@@ -60,7 +60,7 @@ class Trie:
         if node.is_end_of_word:
             result.append(current_word)
 
-        for char, node in node.children.items():
+        for char, _node in node.children.items():
             self._dfs(node, current_word + char, result)
 
 

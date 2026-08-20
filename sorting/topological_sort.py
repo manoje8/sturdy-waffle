@@ -29,7 +29,7 @@ def topological_sort_dfs(graph):
 
 def topological_sort_kahn(graph, vertices):
 
-    in_degree = {vertex: 0 for vertex in vertices}
+    in_degree = dict.fromkeys(vertices, 0)
 
     for u in graph:
         for v, _ in graph[u]:  # (v, w) -> vertices, weight

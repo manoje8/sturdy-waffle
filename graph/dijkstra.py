@@ -18,7 +18,7 @@ def dijkstra(graph, start):
     distances[start] = 0
 
     pq = [(0, start)]  # (distance, vertex)
-    prev = {vertex: None for vertex in graph}
+    prev = dict.fromkeys(graph)
 
     while pq:
         curr_distance, node = heapq.heappop(pq)

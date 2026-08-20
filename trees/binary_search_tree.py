@@ -1,5 +1,6 @@
-from trees.BNode import BNode
 from collections import deque
+
+from trees.BNode import BNode
 
 
 class BinarySearchTree:
