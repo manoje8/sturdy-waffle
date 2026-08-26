@@ -6,7 +6,7 @@ Designed for interview preparation, algorithmic study, and practical reference.
 
 ---
 
-## 📌 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Repository Structure](#repository-structure)
@@ -25,13 +25,13 @@ Designed for interview preparation, algorithmic study, and practical reference.
 
 ---
 
-## 🚀 Overview
+## Overview
 
 This repository provides self-contained, clean implementations with type annotations and modern Python 3.12 idioms. It is formatted and linted using [Ruff](https://github.com/astral-sh/ruff) and configured for consistent code quality with pre-commit hooks.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 ├── graph/                  # Graph data structure and graph algorithms
@@ -81,7 +81,7 @@ This repository provides self-contained, clean implementations with type annotat
 
 ---
 
-## 🧩 Implemented Modules
+## Implemented Modules
 
 ### Data Structures
 
@@ -142,7 +142,7 @@ This repository provides self-contained, clean implementations with type annotat
 
 ---
 
-## 📊 Complexity Cheat Sheet
+## Complexity Cheat Sheet
 
 ### Sorting Algorithms
 
@@ -171,7 +171,7 @@ This repository provides self-contained, clean implementations with type annotat
 
 ---
 
-## 🛠️ Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -223,7 +223,7 @@ python3 -m problems.median_finder
 
 ---
 
-## 🧪 Development & Code Quality
+## Development & Code Quality
 
 This project uses `make` and `ruff` for code style and lint checks:
 
@@ -240,7 +240,7 @@ make check
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] **Minimum Spanning Tree**:
   - [x] Prim's Algorithm
